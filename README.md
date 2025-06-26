@@ -6,5 +6,5 @@ I'm a third-year Mechatronics student and AI Developer who is passionate about m
 
 ## Find me around the web 🌎: 
 
-- Building AI applications on **[GitHub](https://github.com/ra189zor)**
-- Sharing professional updates on **[LinkedIn](https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/)**
+- Building AI applications on <a href="https://github.com/ra189zor">Github</a> 🧠
+- Sharing professional updates <a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/">LinkedIn</a> 💼
