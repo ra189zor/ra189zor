@@ -1,6 +1,6 @@
-<div align="center">
+<img src="assets/banner.png" alt="Muhammad Abdullah - Applied ML, LLM Systems, Full-stack" width="100%" />
 
-# `SYSTEM : MUHAMMAD ABDULLAH`
+<div align="center">
 
 ```yaml
 type: Applied ML & LLM Systems Engineer
@@ -18,7 +18,7 @@ location: Hyderabad, Pakistan
 
 ---
 
-## System Identity
+<img src="assets/s01.png" alt="System Identity" width="100%" />
 
 I build applied-ML and LLM systems end to end — train the model, wrap it in a service that fails gracefully, and put a real interface in front of it. The part I care most about is what happens when the model is wrong, the network is gone, or the data is thinner than the claim.
 
@@ -26,12 +26,12 @@ Most of what follows is about that.
 
 ---
 
-## Architecture Overview
+<img src="assets/s02.png" alt="Architecture Overview" width="100%" />
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph INPUT [ Input Layer ]
-        direction LR
+        direction TB
         D1["13,265 chest X-rays"]
         D2["1,055 WHO handbook passages"]
         D3["Cough audio + acoustic features"]
@@ -39,20 +39,21 @@ flowchart TB
     end
 
     subgraph CORE [ Processing Pipeline ]
-        direction LR
+        direction TB
         P1["ML Training + Grad-CAM"]
         P2["LLM System Design"]
         P3["Service Layer + Graceful Degradation"]
     end
 
     subgraph OUTPUT [ Output Layer ]
-        direction LR
+        direction TB
         O1["Production Systems"]
         O2["Honest Benchmarks"]
         O3["Fail-safe Defaults"]
     end
 
-    INPUT --> CORE --> OUTPUT
+    D1 --> P1
+    P3 --> O1
 
     classDef input fill:#0D1117,stroke:#0D9488,color:#0D9488
     classDef proc fill:#0D1117,stroke:#2F81F7,color:#2F81F7
@@ -67,7 +68,7 @@ flowchart TB
 
 ---
 
-## Subsystems
+<img src="assets/s03.png" alt="Subsystems" width="100%" />
 
 ### `01` Saans — Paediatric TB Screening
 
@@ -77,21 +78,16 @@ flowchart TB
 flowchart LR
     subgraph pipeline [ Screening Pipeline ]
         direction LR
-        A["Chest X-ray\nDenseNet121"] --> F["Clinical\nScore"]
-        B["Cough Audio\n66 features"] --> F
-        C["WHO Handbook\nRAG + Rerank"] --> F
-        F --> G["Health Worker\nDecision"]
+        A["Chest X-ray<br/>DenseNet121"] --> F["Clinical<br/>Score"]
+        B["Cough Audio<br/>66 features"] --> F
+        C["WHO Handbook<br/>RAG + Rerank"] --> F
+        F --> G["Health Worker<br/>Decision"]
     end
 
     style pipeline fill:#0D1117,stroke:#0D9488,color:#0D9488
 ```
 
-| Metric | Value | Detail |
-|:--|:--|:--|
-| **AUC** | `0.942` | honest single-site benchmark |
-| **Recall** | `95.1%` | 271 of 285 TB cases |
-| **Specificity** | `98.2%` | 30 false alarms / 1,705 |
-| **Dataset** | `13,265` | 4 sources, hash-deduped |
+`0.942` AUC, honest single-site benchmark &nbsp;·&nbsp; `95.1%` recall (271/285) &nbsp;·&nbsp; `98.2%` specificity &nbsp;·&nbsp; `13,265` films across 4 hash-deduped sources
 
 > **The reported AUC is 0.942, not the 0.995 the pooled test set produces.** One source draws its TB and normal films from different collections that differ for reasons unrelated to disease, so the model separates them without reading pathology. The honest benchmark is the single hospital where both classes share equipment. Quoting the inflated number would have been easy, and wrong.
 
@@ -111,23 +107,18 @@ flowchart LR
 flowchart LR
     subgraph flow [ Request Lifecycle ]
         direction LR
-        A["User Input"] --> B["5 Defence\nLayers"]
-        B --> C["LLM + 5 Context\nLayers"]
-        C --> D["Output\nFilter"]
+        A["User Input"] --> B["5 Defence<br/>Layers"]
+        B --> C["LLM + 5 Context<br/>Layers"]
+        C --> D["Output<br/>Filter"]
         D --> E["Response"]
-        B -.-> F["Security\nLog"]
+        B -.-> F["Security<br/>Log"]
         D -.-> F
     end
 
     style flow fill:#0D1117,stroke:#7C3AED,color:#7C3AED
 ```
 
-| Metric | Value | Detail |
-|:--|:--|:--|
-| **Defence layers** | `5` | against prompt injection |
-| **Context layers** | `5` | injected per LLM call |
-| **Background loops** | `11` | scheduled + cache refresh |
-| **Slash commands** | `37` | across 6 subsystems |
+`5` defence layers against prompt injection &nbsp;·&nbsp; `5` context layers per LLM call &nbsp;·&nbsp; `11` background loops &nbsp;·&nbsp; `37` slash commands
 
 > **Treating the LLM as untrusted, in both directions.** User input is delimiter-wrapped and pre-filtered for jailbreak patterns; tools are sandboxed with zero `eval`/`exec` and every query partitioned by guild; generated output is post-filtered for system-prompt leakage before it reaches anyone. Blocked inputs and leaked outputs are both written to a security log the admin panel surfaces — an attack surface you can actually watch.
 
@@ -139,56 +130,30 @@ flowchart LR
 
 ### Supporting Systems
 
-```mermaid
-flowchart LR
-    subgraph supporting [ Additional Components ]
-        direction TB
-        L["llm-observe-hub\nObservability proxy for local LLMs\nFastAPI · SQLAlchemy · httpx"]
-        W["WorkflowWizard\nNL to n8n workflow JSON\nReact · TypeScript · Drizzle · Neon"]
-        M["MCP-Studio\nMulti-model MCP validator\nasyncio · PostgreSQL · Streamlit"]
-        L --- W --- M
-    end
+| Project | What it is | Stack |
+|:--|:--|:--|
+| **[llm-observe-hub](https://github.com/ra189zor/llm-observe-hub)** | OpenAI-compatible proxy that instruments local LLMs — streaming pass-through, per-request cost and latency, alert engine, budgets. | `FastAPI` `SQLAlchemy` `httpx` |
+| **[WorkflowWizard](https://github.com/ra189zor/WorkflowWizard)** | Plain-English descriptions to validated, importable n8n workflow JSON. Session auth, Postgres, billing, usage metering. | `React` `TypeScript` `Drizzle` `Neon` |
+| **[MCP-Studio](https://github.com/ra189zor/MCP-Studio)** | Generates and validates MCP servers, fanning one task across Anthropic, OpenAI and Google models in parallel. | `asyncio` `PostgreSQL` `Streamlit` |
 
-    style supporting fill:#0D1117,stroke:#30363D,color:#8B949E
-```
 
 <sub>**[MindFlow](https://github.com/ra189zor/MindFlow)** and **[JobNexus](https://github.com/ra189zor/JobNexus)** are where the multi-agent pattern I keep reaching for got worked out: specialist agents behind a validator that checks their output against the original constraints and returns it for revision until it passes or hits a cap. Also built: **[fraud-detection-agent](https://github.com/ra189zor/fraud-detection-agent)** — hybrid Isolation Forest / One-Class SVM with a six-signal rule engine; **[AI-Venture-Capital-Scout](https://github.com/ra189zor/AI-Venture-Capital-Scout)** — CrewAI agent crew paired with a TensorFlow founder-success model.</sub>
 
 ---
 
-## Tech Stack
+<img src="assets/s04.png" alt="Tech Stack" width="100%" />
 
-```mermaid
-flowchart TB
-    subgraph ml [ ML and Vision ]
-        direction LR
-        TensorFlow --- Keras --- scikit-learn --- ONNX --- NumPy --- pandas
-    end
+**ML & Vision** &nbsp; <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Keras-D00000?style=flat-square&logo=keras&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/ONNX_Runtime-005CED?style=flat-square&logo=onnx&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" height="24" />
 
-    subgraph llm [ LLM Systems ]
-        direction LR
-        RAG --- LangChain --- CrewAI --- MCP --- OpenAI --- Groq
-    end
+**LLM systems** &nbsp; <img src="https://img.shields.io/badge/RAG_+_reranking-2F81F7?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/CrewAI-FF5A5F?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&logo=anthropic&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Groq-F55036?style=flat-square" height="24" />
 
-    subgraph be [ Backend ]
-        direction LR
-        Python --- FastAPI --- Express --- PostgreSQL --- SQLite --- SQLAlchemy
-    end
+**Backend** &nbsp; <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=sqlalchemy&logoColor=white" height="24" />
 
-    subgraph fe [ Frontend and Infra ]
-        direction LR
-        React --- TypeScript --- Vite --- Tailwind --- Streamlit --- Docker
-    end
-
-    ml --> llm --> be --> fe
-
-    classDef layer fill:#0D1117,stroke:#30363D,color:#C9D1D9
-    class ml,llm,be,fe layer
-```
+**Frontend & Infra** &nbsp; <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react" height="24" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="24" />
 
 ---
 
-## Operational Principles
+<img src="assets/s05.png" alt="Operational Principles" width="100%" />
 
 ```mermaid
 stateDiagram-v2
@@ -215,7 +180,7 @@ stateDiagram-v2
 
 ---
 
-## Endpoints
+<img src="assets/s06.png" alt="Endpoints" width="100%" />
 
 ```yaml
 GET /contact:
