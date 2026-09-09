@@ -45,9 +45,9 @@ An offline-first tablet app implementing the WHO *Operational Handbook on Tuberc
 
 > **The reported AUC is 0.942, not the 0.995 the pooled test set produces.** One source draws its TB and normal films from different collections that differ for reasons unrelated to disease, so the model separates them without reading pathology. The honest benchmark is the single hospital where both classes share equipment. Quoting the inflated number would have been easy, and wrong.
 
-**DenseNet121 + Grad-CAM** for chest films · **RandomForest over 66 acoustic features** (MFCC, deltas, spectral, burst stats) for cough · **two-stage local retrieval** over 1,055 handbook passages — MiniLM bi-encoder on onnxruntime, then a cross-encoder rerank, ~3 ms, refusing before it ever calls an API.
+**DenseNet121 + Grad-CAM** for films · **RandomForest over 66 acoustic features** for cough · **two-stage local retrieval** over 1,055 handbook passages — MiniLM, then a cross-encoder rerank, ~3 ms, refusing before it ever calls an API.
 
-Every model here was trained on adults, because no public paediatric dataset exists. So every under-18 recording was held out and the model scored *by age band* rather than assumed to transfer. Bilingual EN/UR with full RTL, installable PWA, fully functional offline.
+Every model was trained on adults, because no public paediatric dataset exists — so every under-18 recording was held out and the model scored *by age band* rather than assumed to transfer. Bilingual EN/UR with RTL, installable PWA, fully offline.
 
 <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react" height="22" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/ONNX_Runtime-005CED?style=flat-square&logo=onnx&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="22" />
 
@@ -72,7 +72,7 @@ A production companion service for a live community: an event-driven Discord bot
 
 **Running an LLM inside a free-tier budget** turned out to be the real engineering. A thread-safe multi-key rotation pool reads `x-ratelimit-remaining-*` headers off every response to rotate *before* limits land, and honours `retry-after` cooldowns on 429. A token budget manager trims conversation history and drops tool definitions dynamically to stay under the per-minute ceiling instead of failing with a 413.
 
-Around that: layered context injection (server state, user profile and long-term memories, live activity, audit history, running agenda), **LLM function calling** for persistent per-user memory and verified moderation actions, async SQLite on `aiosqlite` with WAL, enforced foreign keys, startup migrations and `contextvars`-scoped per-request connections, an internal HTTP API for bot↔dashboard IPC, fails-closed feature flags, parameterised queries with whitelisted column updates, and a Pillow canvas renderer for high-resolution generated cards.
+Around that: five-layer context injection per call, **LLM function calling** for persistent memory and verified moderation actions, async SQLite on `aiosqlite` (WAL, startup migrations, `contextvars`-scoped connections), an internal HTTP API for bot↔dashboard IPC, fails-closed feature flags, and a Pillow renderer for generated cards.
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/discord.py-5865F2?style=flat-square&logo=discord&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/asyncio-3776AB?style=flat-square&logo=python&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="22" />
 
@@ -167,12 +167,18 @@ Field data collection is off unless a deployment enables it, consent is per capt
 
 ---
 
-<div align="center">
+## Connect
 
-<img src="https://streak-stats.demolab.com/?user=ra189zor&hide_border=true&background=00000000&stroke=30363D&ring=2F81F7&fire=2F81F7&currStreakLabel=2F81F7&currStreakNum=2F81F7&sideLabels=8B949E&sideNums=8B949E&dates=6E7681&excludeDaysLabel=6E7681" alt="Contribution streak" width="480" />
+**Open to internships and junior roles in ML engineering and applied AI** — happy to talk through any of the work above, including the parts that didn't work.
 
-<br/><br/>
+<a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="mailto:bbr70686@gmail.com">
+<img src="https://img.shields.io/badge/bbr70686@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+<a href="https://github.com/ra189zor?tab=repositories">
+<img src="https://img.shields.io/badge/All_repositories-181717?style=for-the-badge&logo=github&logoColor=white" alt="Repositories" /></a>
 
-**Open to internships and junior roles in ML engineering and applied AI.**
-
-</div>
+<sub>
+<img src="https://img.shields.io/github/followers/ra189zor?style=flat-square&logo=github&label=followers&color=30363D&labelColor=30363D" height="20" />
+<img src="https://img.shields.io/github/last-commit/ra189zor/Saans?style=flat-square&label=last%20push&color=30363D&labelColor=30363D" height="20" />
+</sub>
