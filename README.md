@@ -2,17 +2,12 @@
 
 <div align="center">
 
-```yaml
-type: Applied ML & LLM Systems Engineer
-status: Final-year Mechatronics · 8th semester
-location: Hyderabad, Pakistan
-```
 
 <a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<img src="https://img.shields.io/badge/LinkedIn-0A1628?style=for-the-badge&logo=linkedin&logoColor=38BDF8" alt="LinkedIn" /></a>
 <a href="mailto:bbr70686@gmail.com">
-<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-<img src="https://img.shields.io/badge/Hyderabad,_PK-1F6FEB?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Location" />
+<img src="https://img.shields.io/badge/Email-0A1628?style=for-the-badge&logo=gmail&logoColor=38BDF8" alt="Email" /></a>
+<img src="https://img.shields.io/badge/Hyderabad,_PK-0A1628?style=for-the-badge&logo=googlemaps&logoColor=38BDF8" alt="Location" />
 
 </div>
 
@@ -55,9 +50,9 @@ flowchart LR
     D1 --> P1
     P3 --> O1
 
-    classDef input fill:#0D1117,stroke:#0D9488,color:#0D9488
-    classDef proc fill:#0D1117,stroke:#2F81F7,color:#2F81F7
-    classDef output fill:#0D1117,stroke:#F97316,color:#F97316
+    classDef input fill:#0A1628,stroke:#38BDF8,color:#38BDF8
+    classDef proc fill:#0A1628,stroke:#7DD3FC,color:#7DD3FC
+    classDef output fill:#0A1628,stroke:#F59E0B,color:#F59E0B
     class D1,D2,D3,D4 input
     class P1,P2,P3 proc
     class O1,O2,O3 output
@@ -84,7 +79,7 @@ flowchart LR
         F --> G["Health Worker<br/>Decision"]
     end
 
-    style pipeline fill:#0D1117,stroke:#0D9488,color:#0D9488
+    style pipeline fill:#0A1628,stroke:#38BDF8,color:#38BDF8
 ```
 
 `0.942` AUC, honest single-site benchmark &nbsp;·&nbsp; `95.1%` recall (271/285) &nbsp;·&nbsp; `98.2%` specificity &nbsp;·&nbsp; `13,265` films across 4 hash-deduped sources
@@ -93,9 +88,9 @@ flowchart LR
 
 **Technical detail.** Two-stage local retrieval — MiniLM bi-encoder on ONNX Runtime, then cross-encoder rerank, ~3 ms, refusing before it ever calls an API. No public paediatric dataset exists, so every model was trained on adults and scored *by age band* rather than assumed to transfer. Bilingual EN/UR with full RTL, installable PWA, fully offline.
 
-<img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react" height="22" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/ONNX_Runtime-005CED?style=flat-square&logo=onnx&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="22" />
+<img src="https://img.shields.io/badge/React_19-0A1628?style=flat-square&logo=react&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/FastAPI-0A1628?style=flat-square&logo=fastapi&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/TensorFlow-0A1628?style=flat-square&logo=tensorflow&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/ONNX_Runtime-0A1628?style=flat-square&logo=onnx&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/Docker-0A1628?style=flat-square&logo=docker&logoColor=38BDF8" height="22" />
 
-**[-> Read the code and the limitations](https://github.com/ra189zor/Saans)** &nbsp; <img src="https://img.shields.io/github/last-commit/ra189zor/Saans?style=flat-square&label=last%20commit&color=30363D&labelColor=30363D" height="20" />
+**[-> Read the code and the limitations](https://github.com/ra189zor/Saans)** &nbsp; <img src="https://img.shields.io/github/last-commit/ra189zor/Saans?style=flat-square&label=last%20commit&color=0A1628&labelColor=0A1628" height="20" />
 
 ---
 
@@ -115,7 +110,7 @@ flowchart LR
         D -.-> F
     end
 
-    style flow fill:#0D1117,stroke:#7C3AED,color:#7C3AED
+    style flow fill:#0A1628,stroke:#38BDF8,color:#38BDF8
 ```
 
 `5` defence layers against prompt injection &nbsp;·&nbsp; `5` context layers per LLM call &nbsp;·&nbsp; `11` background loops &nbsp;·&nbsp; `37` slash commands
@@ -124,7 +119,7 @@ flowchart LR
 
 **Engineering highlights.** Thread-safe multi-key rotation pool reads `x-ratelimit-remaining-*` headers off every response to rotate *before* limits land, and honours `retry-after` cooldowns on 429. Token budget manager trims conversation history and drops tool definitions dynamically to stay under the per-minute ceiling instead of failing with a 413. Five-layer context injection per call, LLM function calling for persistent memory, async SQLite on `aiosqlite` (WAL, startup migrations, `contextvars`-scoped connections), internal HTTP API for bot-dashboard IPC, fails-closed feature flags, and a Pillow canvas renderer for generated cards.
 
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/discord.py-5865F2?style=flat-square&logo=discord&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/asyncio-3776AB?style=flat-square&logo=python&logoColor=white" height="22" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="22" />
+<img src="https://img.shields.io/badge/Python-0A1628?style=flat-square&logo=python&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/discord.py-0A1628?style=flat-square&logo=discord&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/FastAPI-0A1628?style=flat-square&logo=fastapi&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/SQLite-0A1628?style=flat-square&logo=sqlite&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/asyncio-0A1628?style=flat-square&logo=python&logoColor=38BDF8" height="22" /> <img src="https://img.shields.io/badge/Docker-0A1628?style=flat-square&logo=docker&logoColor=38BDF8" height="22" />
 
 ---
 
@@ -143,13 +138,13 @@ flowchart LR
 
 <img src="assets/s04.png" alt="Tech Stack" width="100%" />
 
-**ML & Vision** &nbsp; <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Keras-D00000?style=flat-square&logo=keras&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/ONNX_Runtime-005CED?style=flat-square&logo=onnx&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" height="24" />
+**ML & Vision** &nbsp; <img src="https://img.shields.io/badge/TensorFlow-0A1628?style=flat-square&logo=tensorflow&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Keras-0A1628?style=flat-square&logo=keras&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/scikit--learn-0A1628?style=flat-square&logo=scikitlearn&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/ONNX_Runtime-0A1628?style=flat-square&logo=onnx&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/NumPy-0A1628?style=flat-square&logo=numpy&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/pandas-0A1628?style=flat-square&logo=pandas&logoColor=38BDF8" height="24" />
 
-**LLM systems** &nbsp; <img src="https://img.shields.io/badge/RAG_+_reranking-2F81F7?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/CrewAI-FF5A5F?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&logo=anthropic&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Groq-F55036?style=flat-square" height="24" />
+**LLM systems** &nbsp; <img src="https://img.shields.io/badge/RAG_+_reranking-0A1628?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/LangChain-0A1628?style=flat-square&logo=langchain&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/CrewAI-0A1628?style=flat-square" height="24" /> <img src="https://img.shields.io/badge/MCP-0A1628?style=flat-square&logo=anthropic&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/OpenAI-0A1628?style=flat-square&logo=openai&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Groq-0A1628?style=flat-square" height="24" />
 
-**Backend** &nbsp; <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=sqlalchemy&logoColor=white" height="24" />
+**Backend** &nbsp; <img src="https://img.shields.io/badge/Python-0A1628?style=flat-square&logo=python&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/FastAPI-0A1628?style=flat-square&logo=fastapi&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Express-0A1628?style=flat-square&logo=express&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/PostgreSQL-0A1628?style=flat-square&logo=postgresql&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/SQLite-0A1628?style=flat-square&logo=sqlite&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/SQLAlchemy-0A1628?style=flat-square&logo=sqlalchemy&logoColor=38BDF8" height="24" />
 
-**Frontend & Infra** &nbsp; <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react" height="24" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" height="24" /> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" height="24" />
+**Frontend & Infra** &nbsp; <img src="https://img.shields.io/badge/React-0A1628?style=flat-square&logo=react&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/TypeScript-0A1628?style=flat-square&logo=typescript&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Vite-0A1628?style=flat-square&logo=vite&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Tailwind-0A1628?style=flat-square&logo=tailwindcss&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Streamlit-0A1628?style=flat-square&logo=streamlit&logoColor=38BDF8" height="24" /> <img src="https://img.shields.io/badge/Docker-0A1628?style=flat-square&logo=docker&logoColor=38BDF8" height="24" />
 
 ---
 
@@ -195,13 +190,13 @@ GET /contact:
 > **Open to internships and junior roles in ML engineering and applied AI** — happy to talk through any of the work above, including the parts that didn't work.
 
 <a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<img src="https://img.shields.io/badge/LinkedIn-0A1628?style=for-the-badge&logo=linkedin&logoColor=38BDF8" alt="LinkedIn" /></a>
 <a href="mailto:bbr70686@gmail.com">
-<img src="https://img.shields.io/badge/bbr70686@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+<img src="https://img.shields.io/badge/bbr70686@gmail.com-0A1628?style=for-the-badge&logo=gmail&logoColor=38BDF8" alt="Email" /></a>
 <a href="https://github.com/ra189zor?tab=repositories">
-<img src="https://img.shields.io/badge/All_repositories-181717?style=for-the-badge&logo=github&logoColor=white" alt="Repositories" /></a>
+<img src="https://img.shields.io/badge/All_repositories-0A1628?style=for-the-badge&logo=github&logoColor=38BDF8" alt="Repositories" /></a>
 
 <sub>
-<img src="https://img.shields.io/github/followers/ra189zor?style=flat-square&logo=github&label=followers&color=30363D&labelColor=30363D" height="20" />
-<img src="https://img.shields.io/github/last-commit/ra189zor/Saans?style=flat-square&label=last%20push&color=30363D&labelColor=30363D" height="20" />
+<img src="https://img.shields.io/github/followers/ra189zor?style=flat-square&logo=github&label=followers&color=0A1628&labelColor=0A1628" height="20" />
+<img src="https://img.shields.io/github/last-commit/ra189zor/Saans?style=flat-square&label=last%20push&color=0A1628&labelColor=0A1628" height="20" />
 </sub>
