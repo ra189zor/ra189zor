@@ -1,8 +1,10 @@
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/9a8e3477-0475-4a96-82cb-b010d54741f9" alt="Muhammad Abdullah — AI Developer, Python Innovator, Multi-Agent Specialist" width="100%" />
+<!-- BANNER: re-add here once the image is committed to this repo, e.g.
+     <img src="assets/banner.png" alt="Muhammad Abdullah — AI Developer, Python Innovator, Multi-Agent Specialist" width="100%" />
+     Do NOT use a github.com/user-attachments/... URL — those 404 for logged-out visitors. -->
 
-<br/><br/>
+<h1>Muhammad Abdullah</h1>
 
 <a href="https://github.com/ra189zor">
 <img src="https://readme-typing-svg.demolab.com/?lines=DenseNet121%20%2B%20Grad-CAM%20over%2013%2C265%20chest%20X-rays;Two-stage%20local%20RAG%20with%20cross-encoder%20reranking;Five-layer%20prompt-injection%20defence%2C%20in%20production;Multi-agent%20pipelines%20that%20validate%20their%20own%20output&font=JetBrains%20Mono&weight=500&size=17&pause=1200&color=2F81F7&center=true&vCenter=true&width=620&height=45" alt="What I build" />
@@ -17,10 +19,6 @@
 <img src="https://img.shields.io/badge/Hyderabad,_Pakistan-1F6FEB?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Location" />
 
 </div>
-
-<br/>
-
-## Muhammad Abdullah
 
 **Final-year Mechatronics student, 8th semester.** I build applied-ML and LLM systems end to end — train the model, wrap it in a service that fails gracefully, and put a real interface in front of it.
 
