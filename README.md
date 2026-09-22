@@ -3,7 +3,7 @@
 <div align="center">
 
 <a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/"><img src="https://img.shields.io/badge/LinkedIn-0B1120?style=for-the-badge&logo=linkedin&logoColor=2DD4BF" alt="LinkedIn" /></a>&nbsp;
-<a href="mailto:bbr70686@gmail.com"><img src="https://img.shields.io/badge/Email-0B1120?style=for-the-badge&logo=gmail&logoColor=2DD4BF" alt="Email" /></a>&nbsp;
+<a href="mailto:abkk70686@gmail.com"><img src="https://img.shields.io/badge/Email-0B1120?style=for-the-badge&logo=gmail&logoColor=2DD4BF" alt="Email" /></a>&nbsp;
 <a href="https://github.com/ra189zor?tab=repositories"><img src="https://img.shields.io/badge/Repositories-0B1120?style=for-the-badge&logo=github&logoColor=2DD4BF" alt="Repositories" /></a>
 
 </div>
@@ -16,7 +16,7 @@
 - 🧠 &nbsp; I build **applied-ML and LLM systems end to end** — the model, the service around it, and the interface people actually use
 - 🩺 &nbsp; Proudest of **[Saans](https://github.com/ra189zor/Saans)**, an offline-first paediatric TB-screening app built on the WHO 2022 clinical algorithm
 - 🔍 &nbsp; I care most about the unglamorous parts — what happens when the model is wrong, the network drops, or the data is thinner than the claim
-- 📫 &nbsp; Reach me on [LinkedIn](https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/) or at **bbr70686@gmail.com**
+- 📫 &nbsp; Reach me on [LinkedIn](https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/) or at **abkk70686@gmail.com**
 
 <br/>
 
@@ -85,6 +85,6 @@
 **Open to internships and junior roles in ML engineering and applied AI.**
 
 <a href="https://www.linkedin.com/in/abdullah-kaimkhani-09b1292b9/"><img src="https://img.shields.io/badge/LinkedIn-0B1120?style=for-the-badge&logo=linkedin&logoColor=2DD4BF" alt="LinkedIn" /></a>&nbsp;
-<a href="mailto:bbr70686@gmail.com"><img src="https://img.shields.io/badge/Email-0B1120?style=for-the-badge&logo=gmail&logoColor=2DD4BF" alt="Email" /></a>
+<a href="mailto:abkk70686@gmail.com"><img src="https://img.shields.io/badge/Email-0B1120?style=for-the-badge&logo=gmail&logoColor=2DD4BF" alt="Email" /></a>
 
 </div>
